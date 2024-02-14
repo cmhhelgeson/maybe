@@ -69,12 +69,12 @@
     </div>
 
     <%= form_with model: @account, url: accounts_path, scope: :account, html: { class: "m-5 mt-1 flex flex-col justify-between grow", data: { turbo: false } } do |f| %>
-        <div class="space-y-4 grow">
-          <%= f.hidden_field :accountable_type %>
+      <div class="space-y-4 grow">
+        <%= f.hidden_field :accountable_type %>
 
-          <%= f.text_field :name, placeholder: t('accounts.new.name.placeholder'), required: 'required', label: t('accounts.new.name.label'), autofocus: true %>
+        <%= f.text_field :name, placeholder: t('accounts.new.name.placeholder'), required: 'required', label: t('accounts.new.name.label'), autofocus: true %>
 
-          <%= render "accounts/#{permitted_accountable_partial(@account.accountable_type)}", f: f %>
+        <%= render "accounts/#{permitted_accountable_partial(@account.accountable_type)}", f: f %>
 
         <%= form_field_tag do %>
           <%= f.label :original_balance, class: "form-field__label" %>
